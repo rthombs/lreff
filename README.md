@@ -18,8 +18,8 @@ lag (ARDL) model is estimated. To compute the long-run effect after estimating a
 # Compatibility
 
 `lreff` can be used when the most recent estimated model is a dynamic model that uses Stata's time series
-operators (e.g., L.). In terms of panel data, it only works with homogeneous panel estimators. The estimates
-will not be correct after mean group estimation. 
+operators (e.g., L.). In terms of panel data, it only works with homogeneous panel estimators. The estimates are
+incorrect after mean group estimation. 
 
 `lreff` is confirmed to work with the following programs: 
 
