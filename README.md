@@ -38,7 +38,7 @@ with `xtdpdml`.
 
 # Examples
 
-`lreff` works after time series and panel commands. The examples below are based on a U.S. state-level dataset found {browse "https://github.com/rthombs/xtasysum/blob/example.dta":here}. 
+`lreff` works after time series and panel commands. The examples below are based on a U.S. state-level dataset found [here](https://github.com/rthombs/lreff/blob/main/state_data.dta). 
 
 **`xtreg` ARDL(1,1) example:**  
 
