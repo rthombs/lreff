@@ -1,0 +1,5 @@
+v 3
+d lreff. A Stata command to compute long-run effects after estimating a dynamic model.
+d Ryan P. Thombs, Boston College.
+f lreff.ado
+f lreff.sthlp
