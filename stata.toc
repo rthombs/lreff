@@ -1,0 +1,3 @@
+v 3
+d Ryan P. Thombs, Boston College
+p lreff Compute Long-Run Effects After Estimating a Dynamic Model.
