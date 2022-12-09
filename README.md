@@ -57,6 +57,8 @@ with `xtdpdml`.
      reg L(0/2).(lnff) L(0/1).(lny) lnpop if state=="Ohio"
 
      lreff lny lnpop
+     
+The results are stored in **r(results)**, which can be displayed with `matlist r(results)`. 
 
 # Install 
 
