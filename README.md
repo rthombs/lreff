@@ -58,6 +58,12 @@ with `xtdpdml`.
 
      lreff lny lnpop
 
+# Install 
+
+`lreff` can be installed by typing the following in Stata:
+
+    net install lreff, from("https://raw.githubusercontent.com/rthombs/lreff/main") replace
+
 # Author
 
 [**Ryan P. Thombs**](ryanthombs.com)  
