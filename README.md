@@ -25,7 +25,11 @@ incorrect after mean group estimation.
 
 - `reg` 
 - `xtreg, fe` 
+- `xtabond`
+- `xtdpd`
+- `xtdpdsys`
 - `xtdpdbc` 
+- `xtdpdgmm`
 - `xtdpdml`[^1]
 - `xtdpdqml` 
 - `xtivdfreg` (pooled coefficients only) 
