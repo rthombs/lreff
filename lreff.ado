@@ -1,10 +1,10 @@
 ***************
-*		  	  *
-* lreff	      *
-*		      *
+*	      *
+*   lreff     *
+*	      *
 ***************
 
-*! Version 1 Ryan Thombs 12/5/22
+*! Version 1.1 Ryan Thombs 12/13/22
 
 * Programs lreff works with: 
 * 
@@ -13,12 +13,18 @@
 * - Most recent estimated model is a Dynamic model that uses Stata's time series operator (L.) 
 * 
 * Confirmed Programs: 
-* - xtreg +
-* - xtdpdbc +
-* - xtdpdml +
-* - xtdpdqml +
-* - xtivdfreg + 
-* - xtdcce2 (only pooled CCE) +
+* - reg
+* - xtreg, fe
+* - xtabond
+* - xtdpd
+* - xtdpdsys
+* - xtdpdbc
+* - xtdpdgmm
+* - xtdpdml
+* - xtdpdqml
+* - xtivreg
+* - xtivdfreg (pooled coefficients only)
+* - xtdcce2 (pooled coefficients only)
 
 
 capture program drop lreff
@@ -44,13 +50,13 @@ exit 198
 }
 
 
-if strmatch("`dv'","*`varlist'*") == 1  {
+if strmatch("`dv'","`varlist'") == 1  {
 di as error "Dependent variable cannot be included in varlist."
 exit 198
 }
 
 
-if strmatch("`dve'","*`varlist'*") == 1  {
+if strmatch("`dve'","`varlist'") == 1  {
 di as error "Dependent variable cannot be included in varlist."
 exit 198
 }
@@ -82,6 +88,12 @@ loc iv : colnames e(b) // local macro of the independent variables
 
 if "`ecm'" == "" & strmatch("`dv'", "D.*") == 1 {
 	di as error "Dependent variable is differenced, use the ecm option."
+	exit 198
+}
+
+
+if "`ecm'" != "" & strmatch("`dv'", "D.*") == 0 {
+	di as error "Dependent variable is not differenced, do not use ecm option."
 	exit 198
 }
 
@@ -122,13 +134,20 @@ foreach v of local varlist {
 
 
 // perform calculation
+capture {
+	nlcom `lr'
+}
+if _rc != 0 {
+	local rc = _rc
+	error `rc'
+}
 di ""
 di in smcl "Estimates of Long-Run Effects"
 di ""
 di "     ""{ul:Variable-Specific Calculation}:" 
 nlcom `lr'
-
 }
+
 
 
 
@@ -165,14 +184,22 @@ foreach v of local varlist {
 
 
 
-// perform calculation 
+// perform calculation
+capture {
+	nlcom `lr'
+}
+if _rc != 0 {
+	local rc = _rc
+	error `rc'
+}
 di ""
 di in smcl "Estimates of Long-Run Effects"
 di ""
 di "     ""{ul:Variable-Specific Calculation}:" 
 nlcom `lr'
-
 }
+
+
 }
 
 
@@ -228,12 +255,20 @@ foreach v of local varlist {
 
 
 
-// perform calculation 
+// perform calculation
+capture {
+	nlcom `lr'
+}
+if _rc != 0 {
+	local rc = _rc
+	error `rc'
+}
 di ""
 di in smcl "Estimates of Long-Run Effects"
 di ""
 di "     ""{ul:Variable-Specific Calculation}:" 
 nlcom `lr'
+
 }
 
 
