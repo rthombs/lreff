@@ -1,6 +1,6 @@
 {smcl}
-{* *! Version 1.0 9Dec2022}
-{hi:help lreff}{right: Version 1.0 December 9, 2022}
+{* *! Version 1.1 13Dec2022}
+{hi:help lreff}{right: Version 1.1 December 13, 2022}
 {hline}
 {title:Title}
 
@@ -34,11 +34,17 @@ The estimates are incorrect after mean group estimation.
 
 {p 8} - reg {p_end}
 {p 8} - xtreg, fe {p_end}
+{p 8} - xtabond {p_end}
+{p 8} - xtdpd {p_end}
+{p 8} - xtdpdsys {p_end}
 {p 8} - xtdpdbc {p_end}
+{p 8} - xtdpdgmm {p_end}
 {p 8} - xtdpdml* {p_end}
 {p 8} - xtdpdqml {p_end}
+{p 8} - xtivreg {p_end}
 {p 8} - xtivdfreg (pooled coefficients only) {p_end}
 {p 8} - xtdcce2 (pooled coefficients only) {p_end}
+
 
 {p 4 6} * The coefficients are stored by time period in e(b) after using {cmd:xtdpdml} and
 are reported as var(t) for contemporaneous coefficients and var(t-lag) for the lags.
