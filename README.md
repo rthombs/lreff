@@ -32,6 +32,7 @@ incorrect after mean group estimation.
 - `xtdpdgmm`
 - `xtdpdml`[^1]
 - `xtdpdqml` 
+- `xtivreg`
 - `xtivdfreg` (pooled coefficients only) 
 - `xtdcce2` (pooled coefficients only)
 
