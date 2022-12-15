@@ -5,7 +5,9 @@ A Stata command to compute long-run effects after estimating a dynamic model.
 `lreff` computes the long-run effect for each variable specified after estimating a dynamic model
 using Stata's time series operators (e.g., L.). The command assumes that an autoregressive distributed
 lag (ARDL) model is estimated. To compute the long-run effect after estimating an error-correction model
-(ECM), the user should specify the `ecm` option. 
+(ECM), the user should specify the `ecm` option. Standard errors are estimated using the [delta method](https://www.stata.com/support/faqs/statistics/delta-method/) 
+by collecting the coefficients and passing 
+them to Stata's [`nlcom`](https://www.stata.com/manuals/rnlcom.pdf) command. 
 
 # Syntax
 
